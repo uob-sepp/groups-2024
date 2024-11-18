@@ -74,7 +74,7 @@ jobs:
           script: |
             let fs = require('fs');
             let markdown = 'changes.md';
-            let issue_number = ${{ github.event.workflow_run.pull_requests[0].number }};
+            let issue_number = Number(fs.readFileSync('pr.yaml', 'utf-8'));
 
             if (fs.existsSync(markdown)) {
               await github.rest.issues.createComment({
