@@ -3,3 +3,16 @@
     - "2720963"
     - "2578602"
   id: 189395
+
+- name: "SSH - Assigned Group 1"
+  members:
+    - "2598190"
+    - "2551575"
+    - "2595798"
+  id: 189396
+
+- name: "SSH - Assigned Group 2"
+  members:
+    - "2617364"
+    - "2565185"
+  id: 189398
