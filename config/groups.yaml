@@ -1,3 +1,9 @@
+- name: "alt+255"
+  members:
+    - "2615984"
+    - "2448622"
+    - "2611580"
+    - "2451083"
 - name: "SEPP SSH Prototype Group"
   members:
     - "2558689"
