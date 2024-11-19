@@ -5,7 +5,7 @@
     - "2456077"
   id: 189395
 - name: "SSH - Assigned Group 1"
-  dfembers:
+  members:
     - "2598190"
     - "2551575"
     - "2595798"
