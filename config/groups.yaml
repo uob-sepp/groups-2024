@@ -1,3 +1,9 @@
+- name: "SEPP SSH Prototype Group"
+  members:
+    - "2558689"
+    - "2555422"
+    - "2611951"
+    - "2584182"
 - name: "HESS - Assigned Group 1"
   members:
     - "2720963"
