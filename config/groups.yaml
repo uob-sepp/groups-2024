@@ -25,7 +25,7 @@
     - "2616477"
     - "2707500"
   id: 189398
-- name: "Untitled group"
+- name: "SSH - Assigned Group 3"
   members:
     - "2308934"
     - "2547788"
@@ -52,6 +52,20 @@
     - "2593423"
     - "2277898"
   id: 189602
+- name: "dahir party"
+  members:
+    - "2586348"
+    - "2610945"
+    - "2467516"
+    - "2628595"
+  id: 189744
+- name: "HouseHuddle"
+  members:
+    - "2587224"
+    - "2553571"
+    - "2616092"
+    - "2629238"
+  id: 189743
 - name: "SSH - A,E,L,M"
   members:
     - "2582826"
