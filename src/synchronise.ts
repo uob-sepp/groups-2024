@@ -19,9 +19,27 @@ let students: CourseStudents;
 let prototypeGroups: GroupsById<CanvasGroup>;
 
 async function validateExistingGroup(
-  events: Events,
+  info: SynchroniseInfo,
   configGroup: GroupSpecification,
 ) {
+  // Ensure that there is only one group with a given name.
+  if (info.groupNames.has(configGroup.name)) {
+    throw new Error(
+      `There are multiple groups named '${configGroup.name}' in the configuration.`,
+    );
+  }
+  info.groupNames.add(configGroup.name);
+
+  // Check that the members of this group don't already belong to another.
+  for (let index = 0; index < configGroup.members.length; index++) {
+    const member = configGroup.members[index];
+
+    if (info.allocatedStudents.has(member)) {
+      throw new Error(`Student '${member}' is assigned to multiple groups.`);
+    }
+    info.allocatedStudents.add(member);
+  }
+
   if (configGroup.id !== undefined) {
     const matchingGroup = prototypeGroups[configGroup.id];
 
@@ -36,7 +54,7 @@ async function validateExistingGroup(
           `Name needs to be changed from ${matchingGroup.name} to ${configGroup.name}`,
         );
 
-        events.groupsToUpdate.push({
+        info.events.groupsToUpdate.push({
           group: matchingGroup.id,
           newName: configGroup.name,
           oldName: matchingGroup.name,
@@ -62,7 +80,7 @@ async function validateExistingGroup(
             console.log(
               `Student ${member} (${canvasId}) is a member in the configuration file, but not on Canvas.`,
             );
-            events.membersToAdd.push({
+            info.events.membersToAdd.push({
               group: matchingGroup.id,
               member: { id: canvasId, sis_user_id: member },
             });
@@ -88,7 +106,7 @@ async function validateExistingGroup(
             console.log(
               `Student ${id} (${canvasMember}) needs to be removed from the group on Canvas.`,
             );
-            events.membersToRemove.push({
+            info.events.membersToRemove.push({
               group: matchingGroup.id,
               member: { id: Number(canvasMember), sis_user_id: id },
             });
@@ -104,7 +122,7 @@ async function validateExistingGroup(
     // create group
     console.log(`Group ${configGroup.name} does not exist yet.`);
 
-    events.groupsToCreate.push({
+    info.events.groupsToCreate.push({
       specification: configGroup,
       name: configGroup.name,
       members: configGroup.members.map((member) => {
@@ -117,12 +135,16 @@ async function validateExistingGroup(
 export interface SynchroniseInfo {
   events: Events;
   configGroups: GroupSpecification[];
+  allocatedStudents: Set<string>;
+  groupNames: Set<string>;
 }
 
 export async function synchronise(): Promise<SynchroniseInfo> {
   const results: SynchroniseInfo = {
     events: makeEmptyActions(),
     configGroups: await readGroups(),
+    allocatedStudents: new Set(),
+    groupNames: new Set(),
   };
 
   if (results.configGroups === null) {
@@ -151,7 +173,7 @@ export async function synchronise(): Promise<SynchroniseInfo> {
   );
 
   for (let index = 0; index < results.configGroups.length; index++) {
-    await validateExistingGroup(results.events, results.configGroups[index]);
+    await validateExistingGroup(results, results.configGroups[index]);
   }
 
   return results;

@@ -43,24 +43,24 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Format groups.yaml
-        run: |
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git add config/groups.yaml
-          git commit -m 'Temporary commit'
-          npm run format-config
+      # - name: Format groups.yaml
+      #   run: |
+      #     git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #     git config --global user.name "github-actions[bot]"
+      #     git add config/groups.yaml
+      #     git commit -m 'Temporary commit'
+      #     npm run format-config
 
-      - name: Check for changes
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [ ! -z "$(git status --porcelain)" ]; then
-            echo \
-              'Running \`npm run format-config\` changed the formatting of \`groups.yaml\`:\n\n\`\`\`diff\n' \
-              "$(git diff)\n" \
-              '\`\`\`\n\nPlease run \`npm run format-config\` locally and commit the changes.' | gh pr comment --body-file - ${{ github.event.workflow_run.pull_requests[0].number }}
-          fi
+      # - name: Check for changes
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: |
+      #     if [ ! -z "$(git status --porcelain)" ]; then
+      #       echo \
+      #         'Running \`npm run format-config\` changed the formatting of \`groups.yaml\`:\n\n\`\`\`diff\n' \
+      #         "$(git diff)\n" \
+      #         '\`\`\`\n\nPlease run \`npm run format-config\` locally and commit the changes.' | gh pr comment --body-file - ${{ github.event.workflow_run.pull_requests[0].number }}
+      #     fi
 
       - name: Validate configuration
         run: npm run validate
@@ -74,7 +74,7 @@ jobs:
           script: |
             let fs = require('fs');
             let markdown = 'changes.md';
-            let issue_number = ${{ github.event.workflow_run.pull_requests[0].number }};
+            let issue_number = Number(fs.readFileSync('./config/pr.yaml', 'utf-8'));
 
             if (fs.existsSync(markdown)) {
               await github.rest.issues.createComment({
