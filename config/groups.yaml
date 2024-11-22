@@ -121,11 +121,11 @@
     - "2328859"
   id: 189749
 
-  -name: "SSH IDV"
-   members:
-     - "2601703"
-     - "2606037"
-     - "2606308"
+- name: "SSH IDV"
+  members:
+    - "2601703"
+    - "2606037"
+    - "2606308"
 - name: "SSH - Rowan, Lucas, Jack, Ethan"
   members:
     - "2580242"
