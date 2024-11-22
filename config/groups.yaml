@@ -120,12 +120,20 @@
     - "2666525"
     - "2328859"
   id: 189749
+- name: "SSH - Group 6"
+  members:
+    - "2470856"
+    - "2570552"
+    - "2865723"
+    - "2490722"
+  id: 189932
 - name: "SSH - Spectacularly Silly Humans"
   members:
     - "2630116"
     - "2561829"
     - "2616626"
     - "2600895"
+  id: 189931
 - name: "SSH Group Project"
   members:
     - "2565156"
