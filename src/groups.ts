@@ -44,12 +44,34 @@ export interface GroupsById<T extends BaseGroup> {
 }
 
 /** Reads the local group configuration file. */
-export async function readGroups(): Promise<GroupSpecification[]> {
+export async function readGroups(
+  path: string = GROUP_CONFIG_FILE,
+): Promise<GroupSpecification[]> {
   const groups: GroupSpecification[] = yaml.parse(
-    fs.readFileSync(GROUP_CONFIG_FILE, "utf-8"),
+    fs.readFileSync(path, "utf-8"),
   );
 
   return groups;
+}
+
+/**
+ * Writes the local group configuration file.
+ *
+ * @param path The path of the file to write.
+ * @param groups The groups to write to the file.
+ */
+export async function writeGroups(
+  path: string,
+  groups: GroupSpecification[],
+): Promise<void> {
+  fs.writeFileSync(
+    path,
+    yaml.stringify(groups, {
+      collectionStyle: "block",
+      defaultStringType: "QUOTE_DOUBLE",
+      defaultKeyType: "PLAIN",
+    }),
+  );
 }
 
 /**
