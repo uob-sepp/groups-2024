@@ -1,0 +1,56 @@
+name: "Canvas"
+on:
+  workflow_dispatch:
+
+jobs:
+  update:
+    name: "Update"
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'uob-sepp'
+
+    concurrency:
+      group: "canvas-update"
+      cancel-in-progress: false
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Get token for sepp-bot
+        uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.SEPP_BOT_ID }}
+          private-key: ${{ secrets.SEPP_BOT_PK }}
+
+      - name: Clone repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Compile TypeScript sources
+        uses: ./.github/actions/build
+
+      - name: "Apply changes"
+        run: npm run apply
+        env:
+          CANVAS_TOKEN: ${{ secrets.CANVAS_TOKEN }}
+
+      - name: Format group configuration file
+        run: npm run format-config
+
+      - name: Get GitHub App User ID
+        id: get-user-id
+        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Check for changes and commit them
+        run: |
+          if [ ! -z "$(git status --porcelain)" ]; then
+            git config --global user.name '${{ steps.app-token.outputs.app-slug }}[bot]'
+            git config --global user.email '${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>'
+            git add ./config/groups.yaml
+            git commit -m "Update configuration with Canvas IDs"
+            git push -u origin "HEAD:${{ github.ref }}"
+          fi
