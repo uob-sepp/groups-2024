@@ -1,8 +1,6 @@
-import { writeFileSync } from "fs";
 import { GROUP_CONFIG_FILE, PROTOTYPE_GROUPS_CATEGORY } from "./const";
-import { addToGroup, createGroup, editGroup, readGroups } from "./groups";
+import { addToGroup, createGroup, editGroup, writeGroups } from "./groups";
 import { synchronise } from "./synchronise";
-import * as yaml from "yaml";
 
 async function runWrapper() {
   const results = await synchronise();
@@ -20,14 +18,7 @@ async function runWrapper() {
       }
     }
 
-    writeFileSync(
-      GROUP_CONFIG_FILE,
-      yaml.stringify(results.configGroups, {
-        collectionStyle: "block",
-        defaultStringType: "QUOTE_DOUBLE",
-        defaultKeyType: "PLAIN",
-      }),
-    );
+    await writeGroups(GROUP_CONFIG_FILE, results.configGroups);
 
     for (let index = 0; index < events.groupsToUpdate.length; index++) {
       const event = events.groupsToUpdate[index];
