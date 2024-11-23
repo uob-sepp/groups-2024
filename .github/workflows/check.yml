@@ -26,7 +26,6 @@ jobs:
       - name: Calculate diff
         run: |
           git fetch origin main:refs/remotes/origin/main
-          git merge origin/main
           git diff origin/main ./config/groups.yaml >> ./config/main.diff
           cat ./config/main.diff
 
