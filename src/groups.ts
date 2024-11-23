@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import { makeCanvasRequest } from "./canvas";
 import * as fs from "fs";
-import { StudentsByCanvasId } from "./students";
+import { ByCanvasId, Student, StudentsByCanvasId } from "./students";
 import { GROUP_CONFIG_FILE } from "./const";
 import * as yaml from "yaml";
 
@@ -109,16 +109,23 @@ export async function getCourseGroups(
  * @param id The ID of the group to fetch members for.
  * @returns Returns the members of the specified group, organised by Canvas ID.
  */
-export async function getGroupMembers(id: number): Promise<StudentsByCanvasId> {
+export async function getGroupMembers(
+  id: number,
+): Promise<ByCanvasId<Student>> {
   const request = makeCanvasRequest(`/groups/${id}/users`);
-  const response: any[] = await (await fetch(request)).json();
-  const result: StudentsByCanvasId = {};
+  const response = await fetch(request);
+  try {
+    const json: any[] = await response.json();
+    const result: ByCanvasId<Student> = {};
 
-  response.forEach((member) => {
-    result[member.id] = member;
-  });
+    json.forEach((member) => {
+      result[member.id] = member;
+    });
 
-  return result;
+    return result;
+  } catch (err) {
+    throw err;
+  }
 }
 
 /**
