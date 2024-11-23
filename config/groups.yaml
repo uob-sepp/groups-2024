@@ -74,6 +74,12 @@
     - "2593423"
     - "2277898"
   id: 189602
+- name: "Low Expectations"
+  members:
+    - "2408602"
+    - "2192948"
+    - "2578334"
+  id: 189992
 - name: "dahir party"
   members:
     - "2586348"
@@ -129,6 +135,18 @@
     - "2328859"
     - "2587279"
   id: 189749
+- name: "SSH IDV"
+  members:
+    - "2601703"
+    - "2606037"
+    - "2606308"
+  id: 189999
+- name: "SSH - MYW"
+  members:
+    - "2719514"
+    - "2719511"
+    - "2632109"
+  id: 189982
 - name: "SSH - Assigned Group 6"
   members:
     - "2540037"
@@ -270,10 +288,17 @@
     - "2598283"
     - "2583115"
   id: 189936
+- name: "meow"
+  members:
+    - "2558614"
+    - "2409755"
+    - "2559653"
+    - "2648783"
+  id: 189981
 - name: "academic weapons"
   members:
     - "2567033"
-    - "2591194"
+    - "2591154"
     - "2566752"
     - "2565473"
 - name: "international coders"
@@ -282,3 +307,77 @@
     - "2891959"
     - "2885012"
     - "2886393"
+  id: 189973
+- name: "SSH - Gourmet Pantry Tracker"
+  members:
+    - "2526914"
+    - "2883888"
+    - "2588409"
+    - "2543546"
+  id: 190000
+- name: "Team.getName()"
+  members:
+    - "2575737"
+    - "2645376"
+    - "2595830"
+  id: 189985
+- name: "harpo & woking weapons"
+  members:
+    - "2556285"
+    - "2593585"
+    - "2581708"
+  id: 189984
+- name: "SSH Group N"
+  members:
+    - "2644143"
+    - "2646025"
+    - "2646819"
+    - "2641498"
+  id: 189986
+- name: "Monad Mafia"
+  members:
+    - "2690445"
+    - "2655307"
+    - "2650857"
+    - "2691115"
+  id: 189987
+- name: "SE BIG ZUOYE"
+  members:
+    - "2769795"
+    - "2552662"
+    - "2412310"
+  id: 189988
+- name: "HESS - Shoddy Marker Detector 9000"
+  members:
+    - "2638003"
+    - "2599147"
+    - "2608623"
+    - "2565075"
+  id: 189989
+- name: "SSH - George, Hasan, Parla, Harvey"
+  members:
+    - "2588983"
+    - "2611140"
+    - "2517679"
+    - "2609233"
+  id: 189990
+- name: "HES - N, R, S"
+  members:
+    - "2592476"
+    - "2629480"
+    - "2605148"
+  id: 189991
+- name: "HESS - S, S, A, T"
+  members:
+    - "2582541"
+    - "2549419"
+    - "2487814"
+    - "2606009"
+  id: 190002
+- name: "Uturano"
+  members:
+    - "2885334"
+    - "2695518"
+    - "2695326"
+    - "2625649"
+  id: 190001
