@@ -35,17 +35,47 @@ async function validateExistingGroup(
   info.groupNames.add(configGroup.name);
 
   // Check that the members of this group don't already belong to another.
+  let dubai = false;
+  let edgbaston = false;
+  let unknown = false;
+
   for (let index = 0; index < configGroup.members.length; index++) {
     const member = configGroup.members[index];
 
-    if (info.module.students.byId[member] === undefined) {
+    const canvasId = info.module.students.byId[member];
+    if (canvasId === undefined) {
       throw new Error(`Student '${member}' is not a student on this course.`);
+    }
+
+    if (info.module.edgbaston.has(canvasId)) {
+      edgbaston = true;
+    } else if (info.module.dubai.has(canvasId)) {
+      dubai = true;
+    } else {
+      unknown = true;
     }
 
     if (info.allocatedStudents.has(member)) {
       throw new Error(`Student '${member}' is assigned to multiple groups.`);
     }
     info.allocatedStudents.add(member);
+  }
+
+  // Check whether there is a mix of sections.
+  if (dubai && edgbaston) {
+    throw new Error(
+      `Students from different sections in group ${configGroup.name}`,
+    );
+  } else if (dubai) {
+    console.log(`Group ${configGroup.name} contains only Dubai students`);
+  } else if (edgbaston) {
+    console.log(`Group ${configGroup.name} contains only Edgbaston students`);
+  }
+
+  if (unknown) {
+    console.log(
+      `Group ${configGroup.name} contains students in neither section.`,
+    );
   }
 
   if (configGroup.id !== undefined) {
