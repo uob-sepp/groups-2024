@@ -34,6 +34,13 @@ async function validateExistingGroup(
   }
   info.groupNames.add(configGroup.name);
 
+  // Ensure that there are no more than 4 members.
+  if (configGroup.members.length > 4) {
+    throw new Error(
+      `Group '${configGroup.name}' has more than 4 members in the configuration file.`,
+    );
+  }
+
   // Check that the members of this group don't already belong to another.
   let dubai = false;
   let edgbaston = false;
