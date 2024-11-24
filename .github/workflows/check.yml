@@ -20,8 +20,17 @@ jobs:
       - name: Run checks
         run: npm run check
 
+      - name: Write PR number
+        run: echo "${{ github.event.number }}" >> ./config/pr.yaml
+
+      - name: Calculate diff
+        run: |
+          git fetch origin main:refs/remotes/origin/main
+          git diff origin/main ./config/groups.yaml >> ./config/main.diff
+          cat ./config/main.diff
+
       - name: Upload configuration as artifact
         uses: actions/upload-artifact@v4
         with:
           name: groups.yaml
-          path: ./config/groups.yaml
+          path: ./config/*

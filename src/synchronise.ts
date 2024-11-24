@@ -4,24 +4,80 @@ import {
   CanvasGroup,
   getCourseGroups,
   getGroupMembers,
+  GroupsByCategory,
   GroupsById,
   GroupSpecification,
   readGroups,
 } from "./groups";
-import {
-  cacheIdMapping,
-  CourseStudents,
-  getStudents,
-  restoreIdMapping,
-} from "./students";
+import { getModuleInfo, ModuleInfo } from "./module";
 
-let students: CourseStudents;
 let prototypeGroups: GroupsById<CanvasGroup>;
 
 async function validateExistingGroup(
-  events: Events,
+  info: SynchroniseInfo,
   configGroup: GroupSpecification,
 ) {
+  if (configGroup.id !== undefined) {
+    if (info.groupIds.has(configGroup.id)) {
+      throw new Error(
+        `There are multiple groups with the same Canvas ID '${configGroup.id}'.`,
+      );
+    }
+    info.groupIds.add(configGroup.id);
+  }
+
+  // Ensure that there is only one group with a given name.
+  if (info.groupNames.has(configGroup.name)) {
+    throw new Error(
+      `There are multiple groups named '${configGroup.name}' in the configuration.`,
+    );
+  }
+  info.groupNames.add(configGroup.name);
+
+  // Check that the members of this group don't already belong to another.
+  let dubai = false;
+  let edgbaston = false;
+  let unknown = false;
+
+  for (let index = 0; index < configGroup.members.length; index++) {
+    const member = configGroup.members[index];
+
+    const canvasId = info.module.students.byId[member];
+    if (canvasId === undefined) {
+      throw new Error(`Student '${member}' is not a student on this course.`);
+    }
+
+    if (info.module.edgbaston.has(canvasId)) {
+      edgbaston = true;
+    } else if (info.module.dubai.has(canvasId)) {
+      dubai = true;
+    } else {
+      unknown = true;
+    }
+
+    if (info.allocatedStudents.has(member)) {
+      throw new Error(`Student '${member}' is assigned to multiple groups.`);
+    }
+    info.allocatedStudents.add(member);
+  }
+
+  // Check whether there is a mix of sections.
+  if (dubai && edgbaston) {
+    throw new Error(
+      `Students from different sections in group ${configGroup.name}`,
+    );
+  } else if (dubai) {
+    console.log(`Group ${configGroup.name} contains only Dubai students`);
+  } else if (edgbaston) {
+    console.log(`Group ${configGroup.name} contains only Edgbaston students`);
+  }
+
+  if (unknown) {
+    console.log(
+      `Group ${configGroup.name} contains students in neither section.`,
+    );
+  }
+
   if (configGroup.id !== undefined) {
     const matchingGroup = prototypeGroups[configGroup.id];
 
@@ -36,7 +92,7 @@ async function validateExistingGroup(
           `Name needs to be changed from ${matchingGroup.name} to ${configGroup.name}`,
         );
 
-        events.groupsToUpdate.push({
+        info.events.groupsToUpdate.push({
           group: matchingGroup.id,
           newName: configGroup.name,
           oldName: matchingGroup.name,
@@ -49,7 +105,7 @@ async function validateExistingGroup(
       // console.log(canvasMembers);
 
       configGroup.members.forEach((member) => {
-        const canvasId = students.byId[member];
+        const canvasId = info.module.students.byId[member];
 
         if (canvasId === undefined) {
           console.error(`Unable to retrieve student matching ${member}`);
@@ -62,7 +118,7 @@ async function validateExistingGroup(
             console.log(
               `Student ${member} (${canvasId}) is a member in the configuration file, but not on Canvas.`,
             );
-            events.membersToAdd.push({
+            info.events.membersToAdd.push({
               group: matchingGroup.id,
               member: { id: canvasId, sis_user_id: member },
             });
@@ -71,7 +127,8 @@ async function validateExistingGroup(
       });
 
       Object.keys(canvasMembers).forEach((canvasMember) => {
-        const id = students.byCanvasId[Number.parseInt(canvasMember)];
+        const id =
+          info.module.students.byCanvasId[Number.parseInt(canvasMember)];
 
         if (id === undefined) {
           console.error(`Unable to resolve id of ${canvasMember}`);
@@ -88,7 +145,7 @@ async function validateExistingGroup(
             console.log(
               `Student ${id} (${canvasMember}) needs to be removed from the group on Canvas.`,
             );
-            events.membersToRemove.push({
+            info.events.membersToRemove.push({
               group: matchingGroup.id,
               member: { id: Number(canvasMember), sis_user_id: id },
             });
@@ -104,25 +161,36 @@ async function validateExistingGroup(
     // create group
     console.log(`Group ${configGroup.name} does not exist yet.`);
 
-    events.groupsToCreate.push({
+    info.events.groupsToCreate.push({
       specification: configGroup,
       name: configGroup.name,
       members: configGroup.members.map((member) => {
-        return { id: students.byId[member], sis_user_id: member };
+        return { id: info.module.students.byId[member], sis_user_id: member };
       }),
     });
   }
 }
 
 export interface SynchroniseInfo {
+  module: ModuleInfo;
   events: Events;
   configGroups: GroupSpecification[];
+  allocatedStudents: Set<string>;
+  groupNames: Set<string>;
+  groupIds: Set<number>;
 }
 
-export async function synchronise(): Promise<SynchroniseInfo> {
+export async function synchronise(
+  canvasGroups?: GroupsByCategory<CanvasGroup>,
+): Promise<SynchroniseInfo> {
+  const module = await getModuleInfo();
   const results: SynchroniseInfo = {
+    module,
     events: makeEmptyActions(),
     configGroups: await readGroups(),
+    allocatedStudents: new Set(),
+    groupNames: new Set(),
+    groupIds: new Set(),
   };
 
   if (results.configGroups === null) {
@@ -134,25 +202,28 @@ export async function synchronise(): Promise<SynchroniseInfo> {
     `Found ${results.configGroups.length} group(s) in the local configuration file.`,
   );
 
-  students = await restoreIdMapping("config/students.json").catch(
-    async (err) => {
-      console.log(`Unable to restore student id mapping: ${err}`);
+  if (canvasGroups === undefined) {
+    canvasGroups = await getCourseGroups(SEPP_COURSE);
+  }
 
-      console.log("Fetching students from Canvas...");
-      const result = await getStudents(SEPP_COURSE);
-      await cacheIdMapping("config/students.json", result);
-      return result;
-    },
-  );
-  const groups = await getCourseGroups(SEPP_COURSE);
-  prototypeGroups = groups[PROTOTYPE_GROUPS_CATEGORY];
-  console.log(
-    `Found ${Object.keys(prototypeGroups).length} group(s) on Canvas.`,
-  );
+  prototypeGroups = canvasGroups[PROTOTYPE_GROUPS_CATEGORY];
+  const canvasGroupCount = Object.keys(prototypeGroups).length;
+
+  console.log(`Found ${canvasGroupCount} group(s) on Canvas.`);
 
   for (let index = 0; index < results.configGroups.length; index++) {
-    await validateExistingGroup(results.events, results.configGroups[index]);
+    await validateExistingGroup(results, results.configGroups[index]);
   }
+
+  Object.keys(prototypeGroups).forEach((canvasKey) => {
+    const id = Number(canvasKey);
+    if (!results.groupIds.has(id)) {
+      const group = prototypeGroups[id];
+      console.warn(
+        `Canvas group '${group.name}' '${id}' does not exist in the local configuration!`,
+      );
+    }
+  });
 
   return results;
 }

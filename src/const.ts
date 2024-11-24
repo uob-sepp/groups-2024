@@ -9,6 +9,16 @@ export const CANVAS_BASE_URL = "https://canvas.bham.ac.uk/api/v1";
 export const SEPP_COURSE = 77855;
 
 /**
+ * The Section ID for Edgbaston students.
+ */
+export const EDGBASTON_SECTION = 203770;
+
+/**
+ * The Section ID for Dubai students.
+ */
+export const DUBAI_SECTION = 204168;
+
+/**
  * The ID of the "Student Groups" category.
  */
 export const STUDENT_GROUPS_CATEGORY = 30852;

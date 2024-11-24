@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import { makeCanvasRequest } from "./canvas";
 import * as fs from "fs";
-import { StudentsByCanvasId } from "./students";
+import { ByCanvasId, Student, StudentsByCanvasId } from "./students";
 import { GROUP_CONFIG_FILE } from "./const";
 import * as yaml from "yaml";
 
@@ -44,12 +44,34 @@ export interface GroupsById<T extends BaseGroup> {
 }
 
 /** Reads the local group configuration file. */
-export async function readGroups(): Promise<GroupSpecification[]> {
+export async function readGroups(
+  path: string = GROUP_CONFIG_FILE,
+): Promise<GroupSpecification[]> {
   const groups: GroupSpecification[] = yaml.parse(
-    fs.readFileSync(GROUP_CONFIG_FILE, "utf-8"),
+    fs.readFileSync(path, "utf-8"),
   );
 
   return groups;
+}
+
+/**
+ * Writes the local group configuration file.
+ *
+ * @param path The path of the file to write.
+ * @param groups The groups to write to the file.
+ */
+export async function writeGroups(
+  path: string,
+  groups: GroupSpecification[],
+): Promise<void> {
+  fs.writeFileSync(
+    path,
+    yaml.stringify(groups, {
+      collectionStyle: "block",
+      defaultStringType: "QUOTE_DOUBLE",
+      defaultKeyType: "PLAIN",
+    }),
+  );
 }
 
 /**
@@ -87,16 +109,23 @@ export async function getCourseGroups(
  * @param id The ID of the group to fetch members for.
  * @returns Returns the members of the specified group, organised by Canvas ID.
  */
-export async function getGroupMembers(id: number): Promise<StudentsByCanvasId> {
+export async function getGroupMembers(
+  id: number,
+): Promise<ByCanvasId<Student>> {
   const request = makeCanvasRequest(`/groups/${id}/users`);
-  const response: any[] = await (await fetch(request)).json();
-  const result: StudentsByCanvasId = {};
+  const response = await fetch(request);
+  try {
+    const json: any[] = await response.json();
+    const result: ByCanvasId<Student> = {};
 
-  response.forEach((member) => {
-    result[member.id] = member;
-  });
+    json.forEach((member) => {
+      result[member.id] = member;
+    });
 
-  return result;
+    return result;
+  } catch (err) {
+    throw err;
+  }
 }
 
 /**
@@ -164,6 +193,26 @@ export async function addToGroup(
   data.append("user_id", student.toString());
 
   const request = makeCanvasRequest(`groups/${group}/memberships`, data);
+  const response = await fetch(request);
+  return response.json();
+}
+
+/**
+ * Remove a member from a group.
+ *
+ * @param group The group from which to remove the user from.
+ * @param student The user to remove.
+ * @returns
+ */
+export async function removeFromGroup(
+  group: number,
+  student: number,
+): Promise<any> {
+  const request = makeCanvasRequest(
+    `groups/${group}/users/${student}`,
+    undefined,
+    "DELETE",
+  );
   const response = await fetch(request);
   return response.json();
 }
