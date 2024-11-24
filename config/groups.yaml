@@ -19,6 +19,10 @@
     - "2456077"
     - "2620745"
   id: 189395
+- name: "HESS - Assigned Group 2"
+  members:
+    - "2628205"
+  id: 190030
 - name: "SSH - Assigned Group 1"
   members:
     - "2598190"
@@ -74,6 +78,12 @@
     - "2593423"
     - "2277898"
   id: 189602
+- name: "Low Expectations"
+  members:
+    - "2408602"
+    - "2192948"
+    - "2578334"
+  id: 189992
 - name: "dahir party"
   members:
     - "2586348"
@@ -95,6 +105,13 @@
     - "2558630"
     - "2562101"
   id: 189659
+- name: "SSH Tech Folks"
+  members:
+    - "2648650"
+    - "2603823"
+    - "2691579"
+    - "2717380"
+  id: 190027
 - name: "Caesar"
   members:
     - "2544757"
@@ -127,8 +144,26 @@
     - "2582538"
     - "2666525"
     - "2328859"
-    - "2587279"
   id: 189749
+- name: "seep 3"
+  members:
+    - "2886851"
+    - "2720012"
+    - "2597043"
+    - "2886997"
+  id: 190028
+- name: "SSH IDV"
+  members:
+    - "2601703"
+    - "2606037"
+    - "2606308"
+  id: 189999
+- name: "SSH - MYW"
+  members:
+    - "2719514"
+    - "2719511"
+    - "2632109"
+  id: 189982
 - name: "SSH - Assigned Group 6"
   members:
     - "2540037"
@@ -136,6 +171,25 @@
     - "2605989"
     - "2607073"
   id: 189935
+- name: "SSH - Assigned Group 7"
+  members:
+    - "2587279"
+    - "2551819"
+    - "2718050"
+  id: 190026
+- name: "SSH 10"
+  members:
+    - "2580411"
+    - "2712170"
+    - "2717450"
+  id: 189513
+- name: "SSH 11"
+  members:
+    - "2529250"
+    - "2540574"
+    - "2427037"
+    - "2427038"
+  id: 189514
 - name: "SSH - Group 6"
   members:
     - "2470856"
@@ -270,10 +324,17 @@
     - "2598283"
     - "2583115"
   id: 189936
+- name: "meow"
+  members:
+    - "2558614"
+    - "2409755"
+    - "2559653"
+    - "2648783"
+  id: 189981
 - name: "academic weapons"
   members:
     - "2567033"
-    - "2591194"
+    - "2591154"
     - "2566752"
     - "2565473"
 - name: "SSH - S, S, Y"
@@ -281,3 +342,299 @@
     - "2600849"
     - "2413835"
     - "2611053"
+  id: 189973
+- name: "Taylorians"
+  members:
+    - "2885593"
+    - "2819226"
+    - "2829182"
+    - "2806845"
+  id: 190029
+- name: "international coders"
+  members:
+    - "2884980"
+    - "2891959"
+    - "2885012"
+    - "2886393"
+  id: 190003
+- name: "SSH - Gourmet Pantry Tracker"
+  members:
+    - "2526914"
+    - "2883888"
+    - "2588409"
+    - "2543546"
+  id: 190000
+- name: "Team.getName()"
+  members:
+    - "2575737"
+    - "2645376"
+    - "2595830"
+  id: 189985
+- name: "harpo & woking weapons"
+  members:
+    - "2556285"
+    - "2593585"
+    - "2581708"
+  id: 189984
+- name: "SSH Group N"
+  members:
+    - "2644143"
+    - "2646025"
+    - "2646819"
+    - "2641498"
+  id: 189986
+- name: "Monad Mafia"
+  members:
+    - "2690445"
+    - "2655307"
+    - "2650857"
+    - "2691115"
+  id: 189987
+- name: "SE BIG ZUOYE"
+  members:
+    - "2769795"
+    - "2552662"
+    - "2412310"
+  id: 189988
+- name: "HESS - Shoddy Marker Detector 9000"
+  members:
+    - "2638003"
+    - "2599147"
+    - "2608623"
+    - "2565075"
+  id: 189989
+- name: "SSH - George, Hasan, Parla, Harvey"
+  members:
+    - "2588983"
+    - "2611140"
+    - "2517679"
+    - "2609233"
+  id: 189990
+- name: "HES - N, R, S"
+  members:
+    - "2592476"
+    - "2629480"
+    - "2605148"
+  id: 189991
+- name: "HESS - S, S, A, T"
+  members:
+    - "2582541"
+    - "2549419"
+    - "2487814"
+    - "2606009"
+  id: 190002
+- name: "Uturano"
+  members:
+    - "2885334"
+    - "2695518"
+    - "2695326"
+    - "2625649"
+  id: 190001
+- name: "HESS Topic 3"
+  members:
+    - "2711924"
+    - "2717382"
+    - "2717369"
+    - "2717562"
+  id: 190004
+- name: "SEPP - PEM - Please do not join without asking"
+  members:
+    - "2618508"
+    - "2718277"
+    - "2590357"
+  id: 190005
+- name: "MYG-SSH-se- group"
+  members:
+    - "2884893"
+    - "2884889"
+  id: 190006
+- name: "SEPP Group csco "
+  members:
+    - "2441081"
+    - "2633724"
+  id: 190007
+- name: "SSH GROUP 3 NOFS"
+  members:
+    - "2449556"
+    - "2517716"
+    - "2432191"
+    - "2512757"
+  id: 190008
+- name: "SSH"
+  members:
+    - "2646199"
+  id: 190009
+- name: "SEPP SSH TEAM"
+  members:
+    - "2609123"
+    - "2620610"
+    - "2879389"
+    - "2839238"
+  id: 190010
+- name: "SEPP Assignment Prototype"
+  members:
+    - "2629286"
+  id: 190011
+- name: "SSH - Synchronised Ordering System (SOS) "
+  members:
+    - "2464640"
+    - "2547399"
+    - "2659061"
+    - "2608214"
+  id: 190012
+- name: "Andrew’s group"
+  members:
+    - "2455558"
+    - "2515919"
+    - "2582839"
+    - "2580405"
+  id: 190013
+- name: "Ahmed, Taqwa, Ali "
+  members:
+    - "2371003"
+    - "2582930"
+    - "2549731"
+  id: 190014
+- name: "Rishabs group ( private, dont join if not discussed)"
+  members:
+    - "2608091"
+    - "2642231"
+    - "2571852"
+    - "2701224"
+  id: 190015
+- name: "CSSZ "
+  members:
+    - "2539903"
+    - "2537036"
+    - "2339077"
+    - "2722408"
+  id: 190016
+- name: "SSH group - dxb"
+  members:
+    - "2661358"
+    - "2642851"
+    - "2698096"
+    - "2717009"
+  id: 190017
+- name: "SSH - ASA"
+  members:
+    - "2683248"
+    - "2648887"
+    - "2720323"
+  id: 190018
+- name: "ssh 101"
+  members:
+    - "2567994"
+    - "2574305"
+    - "2584128"
+    - "2717403"
+  id: 190019
+- name: "ssh 1"
+  members:
+    - "2524581"
+    - "2550936"
+    - "2717402"
+  id: 190020
+- name: "protohype"
+  members:
+    - "2590646"
+    - "2590916"
+    - "2585623"
+    - "2614869"
+  id: 190021
+- name: "SEPP Prototype Group"
+  members:
+    - "2674798"
+    - "2566836"
+    - "2580474"
+    - "2688876"
+  id: 190022
+- name: "Max's team -SSH"
+  members:
+    - "2528766"
+    - "2394038"
+    - "2840220"
+  id: 190023
+- name: "Imagine bugging"
+  members:
+    - "2086965"
+    - "2468442"
+    - "2585937"
+    - "2633519"
+  id: 190024
+- name: "Riz"
+  members:
+    - "2375806"
+    - "2301021"
+    - "2428040"
+    - "2475521"
+  id: 190025
+- name: "Verbatim"
+  members:
+    - "2879471"
+    - "2780701"
+    - "2634491"
+    - "2575121"
+  id: 190040
+- name: "RKHW"
+  members:
+    - "2598057"
+    - "2614594"
+    - "2564504"
+    - "2641881"
+  id: 190036
+- name: "SSH - object oriented optimists"
+  members:
+    - "2704419"
+    - "2445193"
+    - "2759138"
+    - "2579826"
+  id: 190032
+- name: "Grup"
+  members:
+    - "2601768"
+    - "2614670"
+    - "2603372"
+  id: 190031
+- name: "ACS 1"
+  members:
+    - "2554482"
+    - "2424078"
+    - "2625764"
+    - "2695350"
+  id: 190039
+- name: "Project Aire"
+  members:
+    - "2544956"
+    - "2536582"
+    - "2540888"
+    - "2540857"
+  id: 190038
+- name: "SSH - A, I, R, R"
+  members:
+    - "2613751"
+    - "2611656"
+    - "2603719"
+    - "2610664"
+  id: 190037
+- name: "SSH Group Dubai - SSXV "
+  members:
+    - "2551765"
+    - "2696377"
+    - "2575698"
+    - "2624077"
+  id: 190035
+- name: "SSH - snowman "
+  members:
+    - "2551905"
+    - "2557019"
+    - "2718053"
+    - "2541229"
+  id: 190042
+- name: "Group SWE"
+  members:
+    - "2543549"
+    - "2522934"
+    - "2575138"
+    - "2522944"
+  id: 190041

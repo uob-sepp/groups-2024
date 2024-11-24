@@ -1,5 +1,11 @@
 import { GROUP_CONFIG_FILE, PROTOTYPE_GROUPS_CATEGORY } from "./const";
-import { addToGroup, createGroup, editGroup, writeGroups } from "./groups";
+import {
+  addToGroup,
+  createGroup,
+  editGroup,
+  removeFromGroup,
+  writeGroups,
+} from "./groups";
 import { synchronise } from "./synchronise";
 
 async function runWrapper() {
@@ -7,6 +13,23 @@ async function runWrapper() {
   const events = results.events;
 
   try {
+    console.log(`Removing students from groups...`);
+
+    for (let index = 0; index < events.membersToRemove.length; index++) {
+      const event = events.membersToRemove[index];
+      console.log(
+        `Removing ${event.member.sis_user_id} from group ${event.group}...`,
+      );
+
+      try {
+        const result = await removeFromGroup(event.group, event.member.id);
+      } catch (err) {
+        console.error(
+          `Unable to remove ${event.member.sis_user_id} from group ${event.group}: ${err}`,
+        );
+      }
+    }
+
     console.log(`Creating groups...`);
 
     for (let index = 0; index < events.groupsToCreate.length; index++) {
