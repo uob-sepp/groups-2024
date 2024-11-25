@@ -544,8 +544,11 @@
     - "2590646"
     - "2590916"
     - "2585623"
-    - "2614869"
   id: 190021
+- name: "protohype 2"
+  members:
+    - "2560422"
+    - "2614869"
 - name: "SEPP Prototype Group"
   members:
     - "2674798"
