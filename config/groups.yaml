@@ -475,6 +475,9 @@
 - name: "SEPP Assignment Prototype"
   members:
     - "2629286"
+    - "2582474"
+    - "2408934"
+    - "2600402"
   id: 190011
 - name: "SSH - Synchronised Ordering System (SOS) "
   members:
@@ -625,6 +628,13 @@
     - "2575698"
     - "2624077"
   id: 190035
+- name: "SSH - dxb101"
+  members:
+    - "2527170"
+    - "2706991"
+    - "2432176"
+    - "2719082"
+  id: 190106
 - name: "SSH - snowman "
   members:
     - "2551905"
@@ -639,6 +649,13 @@
     - "2575138"
     - "2522944"
   id: 190041
+- name: "Team Project SW"
+  members:
+    - "2720540"
+    - "2347204"
+    - "2720049"
+    - "2720376"
+  id: 190100
 - name: "GIA - SSH"
   members:
     - "2646248"
@@ -652,3 +669,15 @@
     - "2648379"
     - "2438550"
   
+- name: "CSGO: Computer Science of Great Octopus"
+  members:
+    - "2449722"
+    - "2538156"
+  id: 190102
+- name: "SSH - JJBA"
+  members:
+    - "2520123"
+    - "2584164"
+    - "2631778"
+    - "2594874"
+  id: 190101
