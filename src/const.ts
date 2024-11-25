@@ -42,3 +42,8 @@ export const GROUP_CONFIG_FILE = "config/groups.yaml";
  * The path to the file used for markdown output.
  */
 export const MARKDOWN_OUTPUT = "changes.md";
+
+/**
+ * The path to the file used for JSON output.
+ */
+export const JSON_OUTPUT = "changes.json";
