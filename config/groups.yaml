@@ -628,6 +628,13 @@
     - "2575698"
     - "2624077"
   id: 190035
+- name: "SSH - dxb101"
+  members:
+    - "2527170"
+    - "2706991"
+    - "2432176"
+    - "2719082"
+  id: 190106
 - name: "SSH - snowman "
   members:
     - "2551905"
@@ -655,6 +662,27 @@
     - "2438298"
     - "2717919"
   id: 190048
+- name: "ZDMI"
+  members:
+    - "2549121"
+    - "2550780"
+    - "2616449"
+    - "2563702"
+  id: 190109
+- name: "Chill Guys"
+  members:
+    - "2818016"
+    - "2820254"
+    - "2887386"
+    - "2818057"
+  id: 190108
+- name: "SSH UK NETHERLANDS ALLIANCE"
+  members:
+    - "2455774"
+    - "2891727"
+    - "2891729"
+    - "2633695"
+  id: 190107
 - name: "CSGO: Computer Science of Great Octopus"
   members:
     - "2449722"

@@ -1,5 +1,7 @@
+import { writeFileSync } from "fs";
 import { Events, writeMarkdown } from "./event";
 import { synchronise } from "./synchronise";
+import { JSON_OUTPUT } from "./const";
 
 async function runValidate(): Promise<Events> {
   try {
@@ -22,6 +24,7 @@ async function runWrapper() {
     events.membersToRemove.length > 0
   ) {
     writeMarkdown(events);
+    writeFileSync(JSON_OUTPUT, JSON.stringify(events));
   }
 }
 
