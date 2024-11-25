@@ -338,6 +338,12 @@
     - "2566752"
     - "2565473"
   id: 189973
+- name: "SSH - S, S, Y"
+  members:
+    - "2600849"
+    - "2413835"
+    - "2611053"
+  id: 190043
 - name: "Taylorians"
   members:
     - "2885593"
@@ -469,6 +475,9 @@
 - name: "SEPP Assignment Prototype"
   members:
     - "2629286"
+    - "2582474"
+    - "2408934"
+    - "2600402"
   id: 190011
 - name: "SSH - Synchronised Ordering System (SOS) "
   members:
@@ -536,7 +545,6 @@
     - "2590916"
     - "2585623"
     - "2614869"
-    # - "2560422" # Temporarily, until the group decides on which 4 to keep
   id: 190021
 - name: "SEPP Prototype Group"
   members:
@@ -565,6 +573,13 @@
     - "2428040"
     - "2475521"
   id: 190025
+- name: "Verbatim"
+  members:
+    - "2879471"
+    - "2780701"
+    - "2634491"
+    - "2575121"
+  id: 190040
 - name: "RKHW"
   members:
     - "2598057"
@@ -585,6 +600,27 @@
     - "2614670"
     - "2603372"
   id: 190031
+- name: "ACS 1"
+  members:
+    - "2554482"
+    - "2424078"
+    - "2625764"
+    - "2695350"
+  id: 190039
+- name: "Project Aire"
+  members:
+    - "2544956"
+    - "2536582"
+    - "2540888"
+    - "2540857"
+  id: 190038
+- name: "SSH - A, I, R, R"
+  members:
+    - "2613751"
+    - "2611656"
+    - "2603719"
+    - "2610664"
+  id: 190037
 - name: "SSH Group Dubai - SSXV "
   members:
     - "2551765"
@@ -598,3 +634,42 @@
     - "2706991"
     - "2432176"
     - "2719082"
+- name: "SSH - snowman "
+  members:
+    - "2551905"
+    - "2557019"
+    - "2718053"
+    - "2541229"
+  id: 190042
+- name: "Group SWE"
+  members:
+    - "2543549"
+    - "2522934"
+    - "2575138"
+    - "2522944"
+  id: 190041
+- name: "Team Project SW"
+  members:
+    - "2720540"
+    - "2347204"
+    - "2720049"
+    - "2720376"
+  id: 190100
+- name: "GIA - SSH"
+  members:
+    - "2646248"
+    - "2438298"
+    - "2717919"
+  id: 190048
+- name: "CSGO: Computer Science of Great Octopus"
+  members:
+    - "2449722"
+    - "2538156"
+  id: 190102
+- name: "SSH - JJBA"
+  members:
+    - "2520123"
+    - "2584164"
+    - "2631778"
+    - "2594874"
+  id: 190101
