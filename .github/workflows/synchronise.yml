@@ -120,6 +120,12 @@ jobs:
               });
             }
 
+      - name: Upload change artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: changes.json
+          path: changes.json
+
       - name: Set workflow status as 'success'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
