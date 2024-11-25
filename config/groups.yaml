@@ -662,6 +662,11 @@
     - "2438298"
     - "2717919"
   id: 190048
+- name: "SSH - ASA"
+  members:
+    - "2648887"
+    - "2683248"
+    - "2720323"
 - name: "CSGO: Computer Science of Great Octopus"
   members:
     - "2449722"
