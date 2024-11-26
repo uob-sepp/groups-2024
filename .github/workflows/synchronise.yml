@@ -28,6 +28,10 @@ jobs:
       issues: write
       pull-requests: write
 
+    concurrency:
+      group: "validate"
+      cancel-in-progress: false
+
     steps:
       - name: Get commit info
         id: commit
@@ -79,6 +83,19 @@ jobs:
           cat ./pr/main.diff
           git apply ./pr/main.diff
 
+      - name: Check that PR is mergeable
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          STATUS=$(gh pr view ${{ steps.pr.outputs.NUMBER }} --json mergeable | jq -r ".mergeable")
+
+          if [[ "$STATUS" == "CONFLICTING" ]]; then
+            echo "PR branch is not up-to-date, updating..."
+            git checkout .
+            gh pr update-branch ${{ steps.pr.outputs.NUMBER }} --rebase
+            exit 1
+          fi
+
       - name: Validate configuration
         run: npm run validate
         env:
@@ -102,6 +119,12 @@ jobs:
                 body: fs.readFileSync('changes.md', 'utf-8')
               });
             }
+
+      - name: Upload change artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: changes.json
+          path: changes.json
 
       - name: Set workflow status as 'success'
         env:
