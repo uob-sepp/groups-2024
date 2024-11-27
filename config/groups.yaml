@@ -464,9 +464,11 @@
     - "2432191"
     - "2512757"
   id: 190008
-- name: "SSH"
+- name: "Collective Cart Pros"
   members:
     - "2646199"
+    - "2595863"
+    - "2559388"
   id: 190009
 - name: "SEPP SSH TEAM"
   members:
@@ -752,11 +754,6 @@
     - "2563027"
     - "2644476"
   id: 190188
-- name: "Collective Cart Pros"
-  members:
-  - "2595863"
-  - "2559388"
-  - "2646199"
 - name: "yaml and haskell suck"
   members:
     - "2596161"
