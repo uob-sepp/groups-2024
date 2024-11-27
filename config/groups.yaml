@@ -22,7 +22,13 @@
 - name: "HESS - Assigned Group 2"
   members:
     - "2628205"
+    - "2717390"
+    - "2476456"
   id: 190030
+- name: "HESS - Assigned Group 3"
+  members:
+    - "2717370"
+    - "2825434"
 - name: "SSH - Assigned Group 1"
   members:
     - "2598190"
@@ -144,6 +150,7 @@
     - "2582538"
     - "2666525"
     - "2328859"
+    - "2465415"
   id: 189749
 - name: "seep 3"
   members:
@@ -177,6 +184,29 @@
     - "2551819"
     - "2718050"
   id: 190026
+- name: "SSH - Assigned Group 8"
+  members:
+    - "2647312"
+    - "2582167"
+    - "2613010"
+    - "2633154"
+- name: "SSH - Assigned Group 9"
+  members:
+    - "2554587"
+    - "2588164"
+    - "2426151"
+    - "2588026"
+- name: "SSH - Assigned Group 10"
+  members:
+    - "2000543"
+    - "2602249"
+    - "2398180"
+- name: "SSH - Assigned Group 11"
+  members:
+    - "2577865"
+    - "2596821"
+    - "2341923"
+    - "2884899"
 - name: "SSH 10"
   members:
     - "2580411"
@@ -763,3 +793,23 @@
     - "2576886"
     - "2559881"
   id: 190780
+- name: "SSH Past Deadline 1 (Dubai)"
+  members:
+    - "2669466"
+    - "2567169"
+    - "2379474"
+    - "2462435"
+- name: "SSH Past Deadline 2 (Dubai)"
+  members:
+    - "2418010"
+    - "2716363"
+    - "2517902"
+- name: "Other 1"
+  members:
+    - "2784725"
+    - "2836076"
+    - "2600281"
+- name: "Other 2"
+  members:
+    - "2544796"
+    - "2561601"
