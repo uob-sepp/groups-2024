@@ -439,11 +439,12 @@
     - "2717369"
     - "2717562"
   id: 190004
-- name: "SEPP - PEM - Please do not join without asking"
+- name: "NEMP"
   members:
     - "2618508"
     - "2718277"
     - "2590357"
+    - "2542178"
   id: 190005
 - name: "MYG-SSH-se- group"
   members:
@@ -722,13 +723,6 @@
     - "2695849"
     - "2683894"
   id: 190130
-- name: "NEMP"
-  members:
-    - "2590357"
-    - "2718277"
-    - "2618508"
-    - "2542178"
-
 - name: "SSH - ACM"
   members:
     - "2490120"
