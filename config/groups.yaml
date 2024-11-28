@@ -196,15 +196,11 @@
     - "2426151"
     - "2588026"
   id: 190783
-- name: "SSH - Assigned Group 10"
-  members:
-    - "2000543"
-    - "2884899"
-  id: 190784
 - name: "SSH - Assigned Group 11"
   members:
     - "2596821"
     - "2341923"
+    - "2000543"
   id: 190785
 - name: "SSH 10"
   members:
@@ -479,6 +475,7 @@
   members:
     - "2884893"
     - "2884889"
+    - "2884899"
   id: 190006
 - name: "fncs champions"
   members:
