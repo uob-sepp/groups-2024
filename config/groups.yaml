@@ -22,7 +22,14 @@
 - name: "HESS - Assigned Group 2"
   members:
     - "2628205"
+    - "2717390"
+    - "2476456"
   id: 190030
+- name: "HESS - Assigned Group 3"
+  members:
+    - "2717370"
+    - "2825434"
+  id: 190781
 - name: "SSH - Assigned Group 1"
   members:
     - "2598190"
@@ -134,7 +141,6 @@
   id: 189745
 - name: "SSH - Assigned Group 4"
   members:
-    - "2448654"
     - "2644345"
     - "2475559"
     - "2607389"
@@ -144,6 +150,7 @@
     - "2582538"
     - "2666525"
     - "2328859"
+    - "2465415"
   id: 189749
 - name: "seep 3"
   members:
@@ -177,6 +184,32 @@
     - "2551819"
     - "2718050"
   id: 190026
+- name: "SSH - Assigned Group 8"
+  members:
+    - "2647312"
+    - "2582167"
+    - "2613010"
+    - "2633154"
+  id: 190782
+- name: "SSH - Assigned Group 9"
+  members:
+    - "2554587"
+    - "2588164"
+    - "2426151"
+    - "2588026"
+  id: 190783
+- name: "SSH - Assigned Group 10"
+  members:
+    - "2000543"
+    - "2398180"
+    - "2884899"
+  id: 190784
+- name: "SSH - Assigned Group 11"
+  members:
+    - "2577865"
+    - "2596821"
+    - "2341923"
+  id: 190785
 - name: "SSH 10"
   members:
     - "2580411"
@@ -439,11 +472,12 @@
     - "2717369"
     - "2717562"
   id: 190004
-- name: "SEPP - PEM - Please do not join without asking"
+- name: "NEMP"
   members:
     - "2618508"
     - "2718277"
     - "2590357"
+    - "2542178"
   id: 190005
 - name: "MYG-SSH-se- group"
   members:
@@ -464,9 +498,11 @@
     - "2432191"
     - "2512757"
   id: 190008
-- name: "SSH"
+- name: "Collective Cart Pros"
   members:
     - "2646199"
+    - "2595863"
+    - "2559388"
   id: 190009
 - name: "SEPP SSH TEAM"
   members:
@@ -552,6 +588,8 @@
   members:
     - "2560422"
     - "2614869"
+    - "2602249"
+    - "2448654"
   id: 190112
 - name: "SEPP Prototype Group"
   members:
@@ -756,6 +794,7 @@
     - "2545776"
     - "2563027"
     - "2644476"
+    - "2521768"
   id: 190188
 - name: "yaml and haskell suck"
   members:
@@ -769,3 +808,14 @@
     - "2636881"
     - "2632597"
     - "2636817"
+- name: "Other 1"
+  members:
+    - "2784725"
+    - "2836076"
+    - "2600281"
+  id: 190786
+- name: "Other 2"
+  members:
+    - "2544796"
+    - "2561601"
+  id: 190787
