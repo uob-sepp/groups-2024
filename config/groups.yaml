@@ -662,13 +662,6 @@
     - "2438298"
     - "2717919"
   id: 190048
-- name: "WomenInMenFields"
-  members:
-    - "2645601"
-    - "2549091"
-    - "2648379"
-    - "2458550"
-  
 - name: "CSGO: Computer Science of Great Octopus"
   members:
     - "2449722"
@@ -681,3 +674,11 @@
     - "2631778"
     - "2594874"
   id: 190101
+
+  - name: "WomenInMenFields"
+    members:
+      -"2645601"
+      -"2458550"
+      -"2549091"
+      -"2648379"
+
