@@ -22,7 +22,14 @@
 - name: "HESS - Assigned Group 2"
   members:
     - "2628205"
+    - "2717390"
+    - "2476456"
   id: 190030
+- name: "HESS - Assigned Group 3"
+  members:
+    - "2717370"
+    - "2825434"
+  id: 190781
 - name: "SSH - Assigned Group 1"
   members:
     - "2598190"
@@ -134,7 +141,6 @@
   id: 189745
 - name: "SSH - Assigned Group 4"
   members:
-    - "2448654"
     - "2644345"
     - "2475559"
     - "2607389"
@@ -144,6 +150,7 @@
     - "2582538"
     - "2666525"
     - "2328859"
+    - "2465415"
   id: 189749
 - name: "seep 3"
   members:
@@ -177,6 +184,32 @@
     - "2551819"
     - "2718050"
   id: 190026
+- name: "SSH - Assigned Group 8"
+  members:
+    - "2647312"
+    - "2582167"
+    - "2613010"
+    - "2633154"
+  id: 190782
+- name: "SSH - Assigned Group 9"
+  members:
+    - "2554587"
+    - "2588164"
+    - "2426151"
+    - "2588026"
+  id: 190783
+- name: "SSH - Assigned Group 10"
+  members:
+    - "2000543"
+    - "2398180"
+    - "2884899"
+  id: 190784
+- name: "SSH - Assigned Group 11"
+  members:
+    - "2577865"
+    - "2596821"
+    - "2341923"
+  id: 190785
 - name: "SSH 10"
   members:
     - "2580411"
@@ -218,11 +251,12 @@
     - "2424692"
     - "2630922"
   id: 189929
-- name: "SSH - D, V, S"
+- name: "SSH - D, V, S, R"
   members:
     - "2600507"
     - "2535073"
     - "2405878"
+    - "2609055"
   id: 189928
 - name: "Skittles"
   members:
@@ -438,21 +472,24 @@
     - "2717369"
     - "2717562"
   id: 190004
-- name: "SEPP - PEM - Please do not join without asking"
+- name: "NEMP"
   members:
     - "2618508"
     - "2718277"
     - "2590357"
+    - "2542178"
   id: 190005
 - name: "MYG-SSH-se- group"
   members:
     - "2884893"
     - "2884889"
   id: 190006
-- name: "SEPP Group csco "
+- name: "fncs champions"
   members:
     - "2441081"
     - "2633724"
+    - "2583656"
+    - "2566990"
   id: 190007
 - name: "SSH GROUP 3 NOFS"
   members:
@@ -461,9 +498,11 @@
     - "2432191"
     - "2512757"
   id: 190008
-- name: "SSH"
+- name: "Collective Cart Pros"
   members:
     - "2646199"
+    - "2595863"
+    - "2559388"
   id: 190009
 - name: "SEPP SSH TEAM"
   members:
@@ -544,8 +583,14 @@
     - "2590646"
     - "2590916"
     - "2585623"
-    - "2614869"
   id: 190021
+- name: "protohype 2"
+  members:
+    - "2560422"
+    - "2614869"
+    - "2602249"
+    - "2448654"
+  id: 190112
 - name: "SEPP Prototype Group"
   members:
     - "2674798"
@@ -662,6 +707,33 @@
     - "2438298"
     - "2717919"
   id: 190048
+- name: "SSH SRP"
+  members:
+    - "2698832"
+    - "2502779"
+    - "2689646"
+  id: 190111
+- name: "ZDMI"
+  members:
+    - "2549121"
+    - "2550780"
+    - "2616449"
+    - "2563702"
+  id: 190109
+- name: "Chill Guys"
+  members:
+    - "2818016"
+    - "2820254"
+    - "2887386"
+    - "2818057"
+  id: 190108
+- name: "SSH UK NETHERLANDS ALLIANCE"
+  members:
+    - "2455774"
+    - "2891727"
+    - "2891729"
+    - "2633695"
+  id: 190107
 - name: "CSGO: Computer Science of Great Octopus"
   members:
     - "2449722"
@@ -681,3 +753,66 @@
     - "2549091"
     - "2648379"
 
+- name: "Chorasaba ssh"
+  members:
+    - "2712008"
+    - "2722323"
+    - "2549089"
+  id: 190110
+- name: "SSH Rats"
+  members:
+    - "2690211"
+    - "2695849"
+    - "2683894"
+  id: 190130
+- name: "SSH - ACM"
+  members:
+    - "2490120"
+    - "2542399"
+    - "2520270"
+  id: 190187
+- name: "CSRS - MAYN"
+  members:
+    - "2604239"
+    - "2839223"
+    - "2889444"
+    - "2832576"
+  id: 190186
+- name: "Andri's Babies"
+  members:
+    - "2839048"
+    - "2866511"
+    - "2833207"
+    - "2637174"
+  id: 190178
+- name: "The prototype"
+  members:
+    - "2544943"
+    - "2720078"
+    - "2595328"
+  id: 190189
+- name: "Habibis"
+  members:
+    - "2545776"
+    - "2563027"
+    - "2644476"
+    - "2521768"
+  id: 190188
+- name: "yaml and haskell suck"
+  members:
+    - "2596161"
+    - "2200769"
+    - "2576886"
+    - "2559881"
+  id: 190780
+- name: "Other 1"
+  members:
+    - "2784725"
+    - "2836076"
+    - "2600281"
+  id: 190786
+- name: "Other 2"
+  members:
+    - "2544796"
+    - "2561601"
+  id: 190787
