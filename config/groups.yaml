@@ -23,8 +23,8 @@
   members:
     - "2628205"
   id: 190030
-- name : "SSH - Assigned Group 1"
-  members :
+- name: "SSH - Assigned Group 1"
+  members:
     - "2598190"
     - "2551575"
     - "2595798"
@@ -674,7 +674,6 @@
     - "2631778"
     - "2594874"
   id: 190101
-
   - name: "WomenInMenFields"
     members:
       -"2645601"
